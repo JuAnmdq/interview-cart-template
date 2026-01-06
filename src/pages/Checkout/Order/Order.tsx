@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Button } from 'mc-components'
 import { makePurchase } from 'api'
 import { useCheckout } from 'context/CheckoutContext'
 import OrderConfirmation from 'components/OrderConfirmation/OrderConfirmation'
@@ -55,13 +56,11 @@ const Order: React.FC = () => {
     history.push('/checkout/payment')
   }
 
-  if (isSuccess) {
-    return <OrderConfirmation />
-  }
-
   return (
     <div>
       <h2>Order Confirmation</h2>
+
+      {isSuccess && <OrderConfirmation />}
 
       <section className="order__section" aria-labelledby="cart-summary">
         <h3 id="cart-summary">Selected Product</h3>
@@ -100,12 +99,12 @@ const Order: React.FC = () => {
       <hr />
 
       <div className="order__actions">
-        <button type="button" onClick={handleBack} disabled={isPending}>
+        <Button type="button" onClick={handleBack} disabled={isPending}>
           Back
-        </button>
-        <button onClick={handleConfirm} disabled={isPending}>
+        </Button>
+        <Button onClick={handleConfirm} disabled={isPending} primary>
           {isPending ? 'Processing...' : 'Confirm Purchase'}
-        </button>
+        </Button>
       </div>
     </div>
   )

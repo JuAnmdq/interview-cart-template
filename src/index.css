@@ -1,13 +1,12 @@
+@import "mc-components/dist/styles/css/index";
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-body {
-  padding: 4em;
+  background-color: #000;
 }
 
 nav {
@@ -19,10 +18,16 @@ nav > * {
   margin-right: 1em;
 }
 
+h2 {
+  margin-bottom: 1.5rem;
+}
+
 hr {
   height: 1px;
   background: gray;
   border: none;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
 a {

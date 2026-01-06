@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Button } from 'mc-components'
 import { getProducts } from 'api'
 import { Product } from 'types'
 import ProductsList from 'components/ProductsList/ProductsList'
-import { useCheckout } from 'context/CheckoutContext'
+import { CheckoutStep, useCheckout } from 'context/CheckoutContext'
 
 const Products: React.FC = () => {
   const history = useHistory()
@@ -46,7 +47,7 @@ const Products: React.FC = () => {
       alert('Please select a product')
       return
     }
-    setStep(1) // Update to registration step (index 1)
+    setStep(CheckoutStep.REGISTRATION)
     history.push('/checkout/registration')
   }
 
@@ -84,9 +85,9 @@ const Products: React.FC = () => {
 
       <hr />
 
-      <button onClick={handleNext} disabled={state.cart.selectedProductId === null}>
+      <Button onClick={handleNext} disabled={state.cart.selectedProductId === null}>
         Continue
-      </button>
+      </Button>
     </div>
   )
 }

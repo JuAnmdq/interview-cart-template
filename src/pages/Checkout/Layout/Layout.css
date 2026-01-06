@@ -1,5 +1,8 @@
 .checkout-nav {
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
 }
 
 .checkout-nav__steps {
@@ -7,34 +10,61 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  gap: 1rem;
+  position: relative;
 }
 
 .checkout-nav__step {
   flex: 1;
   text-align: center;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   user-select: none;
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.checkout-nav__step::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: #333;
+  transition: background-color 0.2s ease;
 }
 
 .checkout-nav__step--active {
-  background-color: #007bff;
-  color: white;
-  font-weight: bold;
+  color: #fff;
+  font-weight: 600;
   cursor: default;
 }
 
+.checkout-nav__step--active::before {
+  background-color: #4ade80;
+}
+
 .checkout-nav__step--completed {
-  background-color: #28a745;
-  color: white;
+  color: #999;
   cursor: pointer;
 }
 
+.checkout-nav__step--completed::before {
+  background-color: #666;
+}
+
 .checkout-nav__step--pending {
-  background-color: #e9ecef;
-  color: black;
+  color: #444;
   cursor: not-allowed;
 }
 
 .checkout-nav__step--clickable {
   cursor: pointer;
+}
+
+.checkout-nav__step--clickable:hover {
+  color: #aaa;
 }

@@ -1,4 +1,5 @@
 import { FormEvent } from 'react'
+import { Button, InputField } from 'mc-components'
 import { useForm } from 'hooks/useForm'
 import { paymentSchema } from 'schemas/validationSchemas'
 import './PaymentForm.css'
@@ -30,42 +31,44 @@ const PaymentForm = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='cardholder-name'>Cardholder Name</label>
-        <br />
-        <input
-          id='cardholder-name'
-          type='text'
-          name='name'
-          value={values.cardholderName}
-          onChange={(e) => handleChange('cardholderName', e.target.value)}
-          onBlur={() => handleBlur('cardholderName')}
-        />
-        {touched.cardholderName && errors.cardholderName && (
-          <div className="payment-form__error">{errors.cardholderName}</div>
-        )}
-      </div>
+      <InputField
+        label='Cardholder Name'
+        input={{
+          id: 'cardholder-name',
+          type: 'text',
+          name: 'cardholder-name',
+          value: values.cardholderName,
+          onChange: (e) => handleChange('cardholderName', e.target.value),
+          onBlur: () => handleBlur('cardholderName')
+        }}
+        meta={{
+          error: errors.cardholderName,
+          touched: touched.cardholderName
+        }}
+      />
 
-      <div>
-        <label htmlFor='card-number'>Credit Card Number</label>
-        <br />
-        <input
-          id='card-number'
-          type='text'
-          name='card'
-          value={values.cardNumber}
-          onChange={(e) => handleChange('cardNumber', e.target.value)}
-          onBlur={() => handleBlur('cardNumber')}
-        />
-        {touched.cardNumber && errors.cardNumber && (
-          <div className="payment-form__error">{errors.cardNumber}</div>
-        )}
-      </div>
+      <InputField
+        label='Credit Card Number'
+        input={{
+          id: 'card-number',
+          type: 'text',
+          name: 'card-number',
+          value: values.cardNumber,
+          onChange: (e) => handleChange('cardNumber', e.target.value),
+          onBlur: () => handleBlur('cardNumber')
+        }}
+        meta={{
+          error: errors.cardNumber,
+          touched: touched.cardNumber
+        }}
+      />
 
       <hr />
 
-      <button type='button' onClick={onBack}>Back</button>
-      <button type='submit'>Next</button>
+      <div className="payment-form__actions">
+        <Button type='button' onClick={onBack}>Back</Button>
+        <Button type='submit' primary>Next</Button>
+      </div>
     </form>
   )
 }

@@ -1,0 +1,31 @@
+section {
+  background-color: #000;
+  color: #fff;
+}
+
+header {
+  background-color: #000;
+  border-bottom: 1px solid #333;
+  padding: 1rem 2rem;
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h4 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem;
+}

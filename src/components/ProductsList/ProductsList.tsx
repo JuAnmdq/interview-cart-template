@@ -49,7 +49,7 @@ const ProductsList = ({ products, selectedProductId, onProductSelect }: Products
               </h3>
 
               <div className={`product-card__icon ${isSelected ? 'product-card__icon--selected' : ''}`}>
-                {isSelected ? (
+                {isSelected && (
                   <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
                     <path
                       d="M20 6L9 17L4 12"
@@ -59,8 +59,6 @@ const ProductsList = ({ products, selectedProductId, onProductSelect }: Products
                       strokeLinejoin="round"
                     />
                   </svg>
-                ) : (
-                  <div className="product-card__icon-inner" />
                 )}
               </div>
             </label>

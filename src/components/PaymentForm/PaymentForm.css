@@ -3,3 +3,8 @@
   font-size: 0.875rem;
   margin-top: 0.25rem;
 }
+
+.payment-form__actions {
+  display: flex;
+  gap: 2.5rem;
+}

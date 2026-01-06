@@ -11,7 +11,7 @@ const OrderConfirmation: React.FC = () => {
         <div className="order-confirmation__actions">
           <Link
             to="/checkout/products"
-            className="order-confirmation__link"
+            className="order-confirmation__link c-button c-button--primary c-button--medium"
           >
             Start New Purchase
           </Link>

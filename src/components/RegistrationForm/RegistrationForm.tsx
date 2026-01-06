@@ -1,4 +1,5 @@
 import { FormEvent } from 'react'
+import { Button, InputField, TextareaField } from 'mc-components'
 import { useForm } from 'hooks/useForm'
 import { registrationSchema } from 'schemas/validationSchemas'
 import './RegistrationForm.css'
@@ -31,41 +32,43 @@ const RegistrationForm = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor='name'>Name</label>
-        <br />
-        <input
-          id='name'
-          type='text'
-          name='name'
-          value={values.name}
-          onChange={(e) => handleChange('name', e.target.value)}
-          onBlur={() => handleBlur('name')}
-        />
-        {touched.name && errors.name && (
-          <div className="registration-form__error">{errors.name}</div>
-        )}
-      </div>
+      <InputField
+        label='Name'
+        input={{
+          id: 'name',
+          type: 'text',
+          name: 'name',
+          value: values.name,
+          onChange: (e) => handleChange('name', e.target.value),
+          onBlur: () => handleBlur('name')
+        }}
+        meta={{
+          error: errors.name,
+          touched: touched.name
+        }}
+      />
 
-      <div>
-        <label htmlFor='address'>Street Address</label>
-        <br />
-        <textarea
-          id='address'
-          name='address'
-          value={values.address}
-          onChange={(e) => handleChange('address', e.target.value)}
-          onBlur={() => handleBlur('address')}
-        />
-        {touched.address && errors.address && (
-          <div className="registration-form__error">{errors.address}</div>
-        )}
-      </div>
+      <TextareaField
+        label='Street Address'
+        input={{
+          id: 'address',
+          name: 'address',
+          value: values.address,
+          onChange: (e) => handleChange('address', e.target.value),
+          onBlur: () => handleBlur('address')
+        }}
+        meta={{
+          error: errors.address,
+          touched: touched.address
+        }}
+      />
 
       <hr />
 
-      <button type='button' onClick={onBack}>Back</button>
-      <button type='submit'>Next</button>
+      <div className="registration-form__actions">
+        <Button type='button' onClick={onBack}>Back</Button>
+        <Button type='submit' primary>Next</Button>
+      </div>
     </form>
   )
 }
