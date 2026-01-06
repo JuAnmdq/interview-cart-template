@@ -14,7 +14,7 @@ const App: React.FC = () => {
                 <CheckoutLayout />
               </CheckoutProvider>
             </Route>
-            <Route exact path="/">
+            <Route>
               <Redirect to="/checkout/products" />
             </Route>
           </Switch>
